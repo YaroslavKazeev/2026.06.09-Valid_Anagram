@@ -1,6 +1,7 @@
 def isAnagram(s, t):
-    # write your code here
-    pass
+    if len(s) != len(t):
+        return False
+    return sorted(s) == sorted(t)
 
 
 EXAMPLE_TEST_CASES = [
@@ -45,5 +46,5 @@ EXAMPLE_TEST_CASES = [
         "input": ["listen", "listen"],
         "expected": True,
         "description": "Identical strings are anagrams",
-    }
+    },
 ]
