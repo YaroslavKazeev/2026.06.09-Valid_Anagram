@@ -1,18 +1,21 @@
+from collections import Counter
+
+
 def isAnagram(s, t):
     if not isinstance(s, str) or not isinstance(t, str):
         raise TypeError("Both function inputs should be the type of string")
-
-    sAcc = 0
-    for char in s:
-        sAcc += ord(char)
-    tAcc = 0
-    for char in t:
-        tAcc += ord(char)
-
-    if sAcc == tAcc:
-        return True
-    else:
+    elif len(s) != len(t):
         return False
+    else:
+        sCount = Counter(s)
+        tCount = Counter(t)
+        isA = True
+        for count in sCount:
+            if sCount[count] != tCount.get(count):
+                isA = False
+                break
+
+        return isA
 
 
 EXAMPLE_TEST_CASES = [
