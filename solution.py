@@ -1,6 +1,18 @@
 def isAnagram(s, t):
-    # write your code here
-    pass
+    if not isinstance(s, str) or not isinstance(t, str):
+        raise TypeError("Both function inputs should be the type of string")
+
+    sAcc = 0
+    for char in s:
+        sAcc += ord(char)
+    tAcc = 0
+    for char in t:
+        tAcc += ord(char)
+
+    if sAcc == tAcc:
+        return True
+    else:
+        return False
 
 
 EXAMPLE_TEST_CASES = [
@@ -45,5 +57,5 @@ EXAMPLE_TEST_CASES = [
         "input": ["listen", "listen"],
         "expected": True,
         "description": "Identical strings are anagrams",
-    }
+    },
 ]
